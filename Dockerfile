@@ -6,6 +6,7 @@ RUN  apt-get update \
   && apt-get install -y wget \
   python-pip \
   openjdk-7-jdk \
-  python-virtualenv
+  python-virtualenv \
+  postgresql-devel
 ADD http://apache.lauf-forum.at/spark/spark-1.5.2/spark-1.5.2-bin-hadoop2.6.tgz /opt/
 RUN cd /opt/ && tar -xvf ./spark-1.5.2-bin-hadoop2.6.tgz
