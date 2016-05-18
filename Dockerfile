@@ -8,5 +8,5 @@ RUN  apt-get update \
   openjdk-7-jdk \
   python-virtualenv \
   postgresql-devel
-ADD http://apache.lauf-forum.at/spark/spark-1.5.2/spark-1.5.2-bin-hadoop2.6.tgz /opt/
+ADD http://apache.lauf-forum.at/spark/spark-1.6.1/spark-1.6.1-bin-hadoop2.6.tgz /opt/
 RUN cd /opt/ && tar -xvf ./spark-1.5.2-bin-hadoop2.6.tgz
