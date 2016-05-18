@@ -9,4 +9,4 @@ RUN  apt-get update \
   python-virtualenv \
   libpq-dev
 ADD http://apache.lauf-forum.at/spark/spark-1.6.1/spark-1.6.1-bin-hadoop2.6.tgz /opt/
-RUN cd /opt/ && tar -xvf ./spark-1.5.2-bin-hadoop2.6.tgz
+RUN cd /opt/ && tar -xvf ./spark-1.6.1-bin-hadoop2.6.tgz
