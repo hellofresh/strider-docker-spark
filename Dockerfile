@@ -7,6 +7,7 @@ RUN  apt-get update \
   python-pip \
   openjdk-7-jdk \
   python-virtualenv \
+  python-dev \
   libpq-dev \
   build-essential \
   libssl-dev \
