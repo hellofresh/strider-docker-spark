@@ -11,5 +11,5 @@ RUN  apt-get update \
   build-essential \
   libssl-dev \
   libffi-dev 
-ADD http://apache.lauf-forum.at/spark/spark-1.6.1/spark-1.6.1-bin-hadoop2.6.tgz /opt/
+ADD http://d3kbcqa49mib13.cloudfront.net/spark-1.6.1-bin-hadoop2.6.tgz /opt/
 RUN cd /opt/ && tar -xvf ./spark-1.6.1-bin-hadoop2.6.tgz
