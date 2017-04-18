@@ -7,6 +7,9 @@ RUN  apt-get update \
   python-pip \
   openjdk-7-jdk \
   python-virtualenv \
-  libpq-dev
+  libpq-dev \
+  build-essential \
+  libssl-dev \
+  libffi-dev 
 ADD http://apache.lauf-forum.at/spark/spark-1.6.1/spark-1.6.1-bin-hadoop2.6.tgz /opt/
 RUN cd /opt/ && tar -xvf ./spark-1.6.1-bin-hadoop2.6.tgz
