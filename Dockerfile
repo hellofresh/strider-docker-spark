@@ -2,7 +2,7 @@ FROM strider/strider-docker-slave
 USER root
 ADD /sudoers.txt /etc/sudoers
 RUN chmod 440 /etc/sudoers
-RUN apt-get install software-properties-common
+RUN apt-get install software-properties-common -y
 RUN add-apt-repository ppa:openjdk-r/ppa
 RUN  apt-get update \
   && apt-get install -y wget \
