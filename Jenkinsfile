@@ -26,10 +26,10 @@ pipeline {
                 }
             }
         }
-        post {
-            always {
-                sh "docker rmi $registry:$BUILD_NUMBER"
-            }
+    }
+    post {
+        always {
+            sh "docker rmi $registry:$BUILD_NUMBER"
         }
     }
 }
