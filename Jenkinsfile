@@ -16,11 +16,11 @@ def call(body) {
         stages {
             stage('Building image') {
                 steps{
-                      script {
-                          docker.build registry + ":$BUILD_NUMBER"
-                      }
-                  }
-              }
-          }
-      }
-}      
+                    script {
+                        docker.build registry + ":$BUILD_NUMBER"
+                    }
+                }
+            }
+        }
+    }
+}
