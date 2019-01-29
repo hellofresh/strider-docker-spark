@@ -20,7 +20,7 @@ pipeline {
             }
             steps {
                 script {
-                    docker.withRegistry('quay.io/hellofresh', registryCredential) {
+                    docker.withRegistry('https://quay.io/hellofresh', registryCredential) {
                     dockerImage.push()
                     }
                 }
