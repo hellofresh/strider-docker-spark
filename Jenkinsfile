@@ -1,6 +1,6 @@
 pipeline {
     environment {
-        registry = "quay.io/hellofresh/strider-docker-spark"
+        registry = "hellofresh/strider-docker-spark"
         registryCredential = 'strider-docker-spark'
     }
 
@@ -20,14 +20,14 @@ pipeline {
             }
             steps {
                 script {
-                    docker.withRegistry( '', registryCredential ) {
+                    docker.withRegistry(['', registryCredential, url: 'quay.io/hellofresh']) {
                     dockerImage.push()
                     }
                 }
             }
         }
-        stage('Remove Unused docker image') {
-            steps {
+        post {
+            always {
                 sh "docker rmi $registry:$BUILD_NUMBER"
             }
         }
