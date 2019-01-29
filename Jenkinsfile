@@ -17,12 +17,12 @@ pipeline {
         }
         stage('Push image from master') {
             when {
-                branch "DWH-2595_Jenkinsfile"
+                branch "master"
             }
             steps {
                 script {
-                    docker.withRegistry('https://quay.io/hellofresh', registryCredential) {
-                        dockerImage.push()
+                    docker.withRegistry('https://quay.io', registryCredential) {
+                        dockerImage.push('latest')
                     }
                 }
             }
