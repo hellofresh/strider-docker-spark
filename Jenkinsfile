@@ -2,6 +2,7 @@ pipeline {
     environment {
         registry = "hellofresh/strider-docker-spark"
         registryCredential = 'strider-docker-spark'
+        dockerImage = ''
     }
 
     agent any
@@ -10,7 +11,7 @@ pipeline {
         stage('Building image') {
             steps {
                 script {
-                    docker.build registry + ":$BUILD_NUMBER"
+                    dockerImage = docker.build registry + ":$BUILD_NUMBER"
                 }
             }
         }
@@ -21,7 +22,7 @@ pipeline {
             steps {
                 script {
                     docker.withRegistry('https://quay.io/hellofresh', registryCredential) {
-                    dockerImage.push()
+                        dockerImage.push()
                     }
                 }
             }
