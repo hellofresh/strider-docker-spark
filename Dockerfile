@@ -4,11 +4,10 @@ ADD /sudoers.txt /etc/sudoers
 RUN  apt-get update
 RUN chmod 440 /etc/sudoers
 RUN apt-get install software-properties-common -y
-RUN add-apt-repository ppa:openjdk-r/ppa
 RUN  apt-get update \
   && apt-get install -y wget \
   python-pip \
-  openjdk-7-jdk \
+  openjdk-8-jdk \
   python-virtualenv \
   python-dev \
   libpq-dev \
