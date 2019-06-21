@@ -13,9 +13,7 @@ RUN  apt-get update \
   libpq-dev \
   build-essential \
   libssl-dev \
-  libffi-dev \
-  && apt-get clean \
-  && rm -rf /var/lib/apt/lists/*
+  libffi-dev
 RUN cd /opt/ \
   && wget http://d3kbcqa49mib13.cloudfront.net/spark-1.6.1-bin-hadoop2.6.tgz \
   && tar -xvf ./spark-1.6.1-bin-hadoop2.6.tgz \
