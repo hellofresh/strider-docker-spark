@@ -13,7 +13,9 @@ RUN  apt-get update \
   libpq-dev \
   build-essential \
   libssl-dev \
-  libffi-dev
+  libffi-dev \
+  unzip \
+  curl
 RUN cd /opt/ \
   && wget http://d3kbcqa49mib13.cloudfront.net/spark-1.6.1-bin-hadoop2.6.tgz \
   && tar -xvf ./spark-1.6.1-bin-hadoop2.6.tgz \
@@ -22,3 +24,24 @@ RUN cd /opt/ \
   && wget https://archive.apache.org/dist/spark/spark-2.3.0/spark-2.3.0-bin-hadoop2.6.tgz \
   && tar -xvf ./spark-2.3.0-bin-hadoop2.6.tgz \
   && rm -rf /opt/spark-2.3.0-bin-hadoop2.6.tgz
+
+# install ansible
+RUN pip install cffi \
+        dnspython \
+        boto \
+        boto3 \
+        docopt \
+        tabulate \
+        mandrill \
+        elasticsearch \
+        netaddr \
+        hvac \
+        ansible>=2.4.0
+
+# install vault
+RUN wget -P /tmp/vault https://releases.hashicorp.com/vault/1.1.3/vault_1.1.3_linux_amd64.zip \
+    && unzip /tmp/vault/vault_1.1.3_linux_amd64.zip -d /tmp/extract/ \
+    && mv /tmp/extract/vault /usr/bin/ \
+    && rm -rf /tmp/*
+
+
