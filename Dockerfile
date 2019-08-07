@@ -10,6 +10,7 @@ RUN  apt-get update \
   openjdk-8-jdk \
   python-virtualenv \
   python-dev \
+  python3-dev \
   libpq-dev \
   build-essential \
   libssl-dev \
