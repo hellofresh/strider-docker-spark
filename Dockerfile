@@ -1,5 +1,11 @@
 FROM strider/strider-docker-slave
 USER root
+
+# Setup workspace and user
+RUN adduser --home /home/jenkins --gecos "" jenkins
+RUN mkdir -p /home/jenkins/workspace
+RUN chown -R jenkins /home/jenkins
+
 ADD /sudoers.txt /etc/sudoers
 RUN  apt-get update
 RUN chmod 440 /etc/sudoers
