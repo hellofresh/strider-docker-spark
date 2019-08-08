@@ -2,7 +2,7 @@ FROM strider/strider-docker-slave
 USER root
 
 # Setup workspace and user
-RUN adduser -u 114 -g 118 --home /home/jenkins --gecos "" jenkins
+RUN adduser --uid 114 --gid 118 --home /home/jenkins --gecos "" jenkins
 RUN mkdir -p /home/jenkins/workspace
 RUN chown -R jenkins /home/jenkins
 
