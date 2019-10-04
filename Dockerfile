@@ -17,7 +17,6 @@ RUN  apt-get update \
   openjdk-8-jdk \
   python-virtualenv \
   python-dev \
-  python3-dev \
   libpq-dev \
   build-essential \
   libssl-dev \
@@ -33,13 +32,13 @@ RUN cd /opt/ \
   && tar -xvf ./spark-2.3.0-bin-hadoop2.6.tgz \
   && rm -rf /opt/spark-2.3.0-bin-hadoop2.6.tgz
 RUN cd /opt/ \
-  && wget https://www.python.org/ftp/python/3.6.3/Python-3.6.3.tgz \
-  && tar -xvf ./Python-3.6.3.tgz \
-  && cd Python-3.6.3 \
+  && wget https://www.python.org/ftp/python/3.7.4/Python-3.7.4.tgz \
+  && tar -xvf ./Python-3.7.4.tgz \
+  && cd Python-3.7.4 \
   && ./configure \
   && make \
   && make install \
-  && rm -rf /opt/Python-3.6.3.tgz
+  && rm -rf /opt/Python-3.7.4.tgz
 
 # install ansible
 RUN pip install cffi \
