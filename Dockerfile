@@ -32,6 +32,14 @@ RUN cd /opt/ \
   && wget https://archive.apache.org/dist/spark/spark-2.3.0/spark-2.3.0-bin-hadoop2.6.tgz \
   && tar -xvf ./spark-2.3.0-bin-hadoop2.6.tgz \
   && rm -rf /opt/spark-2.3.0-bin-hadoop2.6.tgz
+RUN cd /opt/ \
+  && wget https://www.python.org/ftp/python/3.6.3/Python-3.6.3.tgz \
+  && tar -xvf ./Python-3.6.3.tgz \
+  && cd Python-3.6.3 \
+  && ./configure \
+  && make \
+  && make install \
+  && rm -rf /opt/Python-3.6.3.tgz
 
 # install ansible
 RUN pip install cffi \
