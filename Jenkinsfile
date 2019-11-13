@@ -1,6 +1,6 @@
 pipeline {
     environment {
-        registry = "985437859871.dkr.ecr.eu-west-1.amazonaws.com/flume"
+        registry = "489198589229.dkr.ecr.eu-west-1.amazonaws.com/strider-docker-spark"
         dockerImage = ''
     }
 
@@ -15,13 +15,12 @@ pipeline {
             }
         }
         stage('Push image from master') {
-/*            when {
+            when {
                 branch "master"
-            }*/
             steps {
-                sh '$(aws2 ecr get-login --no-include-email --region eu-west-1 --registry-ids 489198589229)'
+                sh '$(aws2 ecr get-login --no-include-email --region eu-west-1 --registry-ids 489198589229 --registry-ids 489198589229)'
                 script {
-                    docker.withRegistry('https://quay.io') {
+                    docker.withRegistry('https://489198589229.dkr.ecr.eu-west-1.amazonaws.com') {
                         dockerImage.push('latest')
                     }
                 }
