@@ -22,7 +22,8 @@ RUN  apt-get update \
   libssl-dev \
   libffi-dev \
   unzip \
-  curl
+  curl \
+  libsasl2-dev
 RUN cd /opt/ \
   && wget http://d3kbcqa49mib13.cloudfront.net/spark-1.6.1-bin-hadoop2.6.tgz \
   && tar -xvf ./spark-1.6.1-bin-hadoop2.6.tgz \
