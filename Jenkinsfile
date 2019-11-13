@@ -17,6 +17,7 @@ pipeline {
         stage('Push image from master') {
             when {
                 branch "master"
+                }
             steps {
                 sh '$(aws2 ecr get-login --no-include-email --region eu-west-1 --registry-ids 489198589229 --registry-ids 489198589229)'
                 script {
