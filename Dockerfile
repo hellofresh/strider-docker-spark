@@ -6,6 +6,7 @@ RUN addgroup --gid 118 jenkins
 RUN adduser --uid 114 --gid 118 --home /home/jenkins --gecos "" jenkins
 RUN mkdir -p /home/jenkins/workspace
 RUN chown -R jenkins /home/jenkins
+RUN chown -R jenkins /home/strider
 
 ADD /sudoers.txt /etc/sudoers
 RUN  apt-get update
