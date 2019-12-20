@@ -24,7 +24,8 @@ RUN  apt-get update \
   libffi-dev \
   unzip \
   curl \
-  libsasl2-dev
+  libsasl2-dev \
+  libsqlite3-dev
 RUN cd /opt/ \
   && wget http://d3kbcqa49mib13.cloudfront.net/spark-1.6.1-bin-hadoop2.6.tgz \
   && tar -xvf ./spark-1.6.1-bin-hadoop2.6.tgz \
@@ -60,5 +61,3 @@ RUN wget -P /tmp/vault https://releases.hashicorp.com/vault/1.1.3/vault_1.1.3_li
     && unzip /tmp/vault/vault_1.1.3_linux_amd64.zip -d /tmp/extract/ \
     && mv /tmp/extract/vault /usr/bin/ \
     && rm -rf /tmp/*
-
-
