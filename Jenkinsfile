@@ -14,6 +14,7 @@ pipeline {
                 aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 489198589229.dkr.ecr.eu-west-1.amazonaws.com/strider-docker-spark
                 '''
             }
+            }
         stage('Building image') {
             steps {
                 sh '''
