@@ -36,7 +36,7 @@ pipeline {
     }
     post {
         always {
-            sh "docker rmi $registry:$BUILD_NUMBER"
+            sh "docker rmi strider-docker-spark"
         }
     }
 }
