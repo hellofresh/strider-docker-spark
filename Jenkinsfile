@@ -7,14 +7,14 @@ pipeline {
     agent any
 
     stages {
-        stage("ECR login") {
+        stage("ecr login") {
             agent any
             steps {
                 sh '''
-                aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 489198589229.dkr.ecr.eu-west-1.amazonaws.com/strider-docker-spark
+                aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 489198589229.dkr.ecr.eu-west-1.amazonaws.com
                 '''
             }
-            }
+        }
         stage('Building image') {
             steps {
                 sh '''
@@ -31,7 +31,7 @@ pipeline {
                 docker tag strider-docker-spark:latest 489198589229.dkr.ecr.eu-west-1.amazonaws.com/strider-docker-spark:latest
                 docker push 489198589229.dkr.ecr.eu-west-1.amazonaws.com/strider-docker-spark:latest
                 '''
-            }
+                }
             }
         }
     }
