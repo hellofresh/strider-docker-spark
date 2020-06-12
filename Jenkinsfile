@@ -19,7 +19,7 @@ pipeline {
                 branch "master"
                 }
             steps {
-                sh '$(aws2 ecr get-login --no-include-email --region eu-west-1 --registry-ids 489198589229 --registry-ids 489198589229)'
+                sh '$(aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 489198589229.dkr.ecr.eu-west-1.amazonaws.com)'
                 script {
                     docker.withRegistry('https://489198589229.dkr.ecr.eu-west-1.amazonaws.com') {
                         dockerImage.push('latest')
