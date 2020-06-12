@@ -29,10 +29,10 @@ pipeline {
             steps {
                 sh '''
                 docker tag strider-docker-spark:latest 489198589229.dkr.ecr.eu-west-1.amazonaws.com/strider-docker-spark:latest
+                docker push 489198589229.dkr.ecr.eu-west-1.amazonaws.com/strider-docker-spark:latest
                 '''
                 }
             }
-        }
     }
     post {
         always {
