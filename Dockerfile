@@ -56,6 +56,7 @@ RUN pip install cffi \
         hvac \
         ansible==2.8.2 \
         rsa==4.0 \
+        setuptools==44.0.0 \
         google-auth==1.16.0
 
 # install vault
