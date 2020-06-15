@@ -55,7 +55,8 @@ RUN pip install cffi \
         netaddr \
         hvac \
         ansible==2.8.2 \
-        rsa==4.0
+        rsa==4.0 \
+        google-auth==1.16.0
 
 # install vault
 RUN wget -P /tmp/vault https://releases.hashicorp.com/vault/1.1.3/vault_1.1.3_linux_amd64.zip \
