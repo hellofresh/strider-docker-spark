@@ -25,7 +25,8 @@ RUN  apt-get update \
   unzip \
   curl \
   libsasl2-dev \
-  libsqlite3-dev
+  libsqlite3-dev \
+  libbz2-dev
 RUN cd /opt/ \
   && wget http://d3kbcqa49mib13.cloudfront.net/spark-1.6.1-bin-hadoop2.6.tgz \
   && tar -xvf ./spark-1.6.1-bin-hadoop2.6.tgz \
