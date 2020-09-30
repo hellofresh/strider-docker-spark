@@ -65,6 +65,3 @@ RUN wget -P /tmp/vault https://releases.hashicorp.com/vault/1.1.3/vault_1.1.3_li
     && unzip /tmp/vault/vault_1.1.3_linux_amd64.zip -d /tmp/extract/ \
     && mv /tmp/extract/vault /usr/bin/ \
     && rm -rf /tmp/*
-
-ENV PYTHONPATH=$SPARK_HOME/python/:$PYTHONPATH
-ENV PYTHONPATH=$SPARK_HOME/python/lib/py4j-0.9-src.zip:$PYTHONPATH
