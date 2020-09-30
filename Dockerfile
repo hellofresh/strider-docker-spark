@@ -67,4 +67,4 @@ RUN wget -P /tmp/vault https://releases.hashicorp.com/vault/1.1.3/vault_1.1.3_li
     && rm -rf /tmp/*
 
 ENV PYTHONPATH=$SPARK_HOME/python/:$PYTHONPATH
-ENV PYTHONPATH=$SPARK_HOME/python/lib/py4j-0.9-src.zip:$PYTHONPATH
+ENV PYTHONPATH=$SPARK_HOME/python/lib/py4j-0.10.7-src.zip:$PYTHONPATH
