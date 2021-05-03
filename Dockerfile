@@ -71,13 +71,13 @@ RUN wget -P /tmp/vault https://releases.hashicorp.com/vault/1.1.3/vault_1.1.3_li
 RUN wget -P /tmp/conda https://repo.continuum.io/miniconda/Miniconda3-4.5.4-Linux-x86_64.sh \
     && chmod +x /tmp/conda/Miniconda3-4.5.4-Linux-x86_64.sh\
     && /tmp/conda/Miniconda3-4.5.4-Linux-x86_64.sh -b -u -p /opt/miniconda3 \
-#    && /home/strider/anaconda3/bin/conda init bash \
     && pip install conda-pack \
     && rm -rf /tmp/*
 
-ADD hellofresh.yml /home/jenkins
+ADD hellofresh-py2.yml /home/jenkins
+ADD hellofresh-py3.yml /home/jenkins
 
 # install awscli
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && unzip awscliv2.zip && ./aws/install -i /.aws/cli
 
-RUN chmod 777 /home/jenkins/hellofresh.yml
+RUN chmod 777 /home/jenkins/hellofresh*.yml
