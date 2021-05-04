@@ -42,10 +42,11 @@ RUN cd /opt/ \
   && rm -rf /opt/Python-3.7.4.tgz
 
 # update pip
-RUN pip install --upgrade pip==18.1
+RUN pip install --no-cache-dir --upgrade pip==20.3
 
 # install ansible
-RUN pip install cffi \
+RUN pip install --no-cache-dir \
+        cffi \
         dnspython \
         boto \
         boto3 \
@@ -74,10 +75,19 @@ RUN wget -P /tmp/conda https://repo.continuum.io/miniconda/Miniconda3-4.5.4-Linu
     && pip install conda-pack \
     && rm -rf /tmp/*
 
-ADD hellofresh-py2.yml /home/jenkins
-ADD hellofresh-py3.yml /home/jenkins
+ADD hellofresh*.yml /home/jenkins
 
 # install awscli
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && unzip awscliv2.zip && ./aws/install -i /.aws/cli
 
+# add permisisons for conda
 RUN chmod 777 /home/jenkins/hellofresh*.yml
+RUN chown -Rh 114:118 /opt/miniconda3
+
+# create 4 venvs
+USER jenkins
+RUN . /opt/miniconda3/etc/profile.d/conda.sh \
+    && /opt/miniconda3/bin/conda env create -f /home/jenkins/hellofresh-py2.yml \
+    && /opt/miniconda3/bin/conda env create -f /home/jenkins/hellofresh-py2-test.yml \
+    && /opt/miniconda3/bin/conda env create -f /home/jenkins/hellofresh-py3.yml \
+    && /opt/miniconda3/bin/conda env create -f /home/jenkins/hellofresh-py3-test.yml

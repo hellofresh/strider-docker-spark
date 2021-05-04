@@ -1,4 +1,4 @@
-name: hellofresh-py3
+name: hellofresh-py3-test
 channels:
   - conda-forge
   - defaults
