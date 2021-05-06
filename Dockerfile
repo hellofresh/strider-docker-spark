@@ -42,25 +42,12 @@ RUN cd /opt/ \
   && rm -rf /opt/Python-3.7.4.tgz
 
 # update pip
-RUN pip install --no-cache-dir --upgrade pip==20.3
+RUN pip install --no-cache-dir --upgrade pip==20.1
 
 # install ansible
 RUN pip install --no-cache-dir \
-        cffi \
-        dnspython \
-        boto \
-        boto3 \
-        docopt \
-        jinja2 \
-        tabulate \
-        mandrill \
-        elasticsearch \
-        netaddr \
-        hvac \
-        ansible==2.8.2 \
-        rsa==4.0 \
-        setuptools==44.0.0 \
-        google-auth==1.16.0
+        --index-url https://artifactory.tools-k8s.hellofresh.io/artifactory/api/pypi/py/simple \
+        hf-etl-manager
 
 # install vault
 RUN wget -P /tmp/vault https://releases.hashicorp.com/vault/1.1.3/vault_1.1.3_linux_amd64.zip \
