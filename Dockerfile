@@ -62,7 +62,7 @@ RUN wget -P /tmp/conda https://repo.continuum.io/miniconda/Miniconda3-4.5.4-Linu
     && pip install conda-pack \
     && rm -rf /tmp/*
 
-ADD hellofresh*.yml /home/jenkins
+ADD hellofresh*.yml /home/jenkins/
 
 # install awscli
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && unzip awscliv2.zip && ./aws/install -i /.aws/cli
