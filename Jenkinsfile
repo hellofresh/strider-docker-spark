@@ -36,7 +36,7 @@ pipeline {
     }
     post {
         always {
-            sh "docker rmi strider-docker-spark"
+            sh "if [[ `docker image ls -q strider-docker-spark` ]] ; then docker rmi strider-docker-spark; fi"
         }
     }
 }
