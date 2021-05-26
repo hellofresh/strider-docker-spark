@@ -1,9 +1,0 @@
-name: hellofresh-py3
-channels:
-  - conda-forge
-  - defaults
-dependencies:
-  - python=3.7
-  - pip:
-    - --index-url https://artifactory.tools-k8s.hellofresh.io/artifactory/api/pypi/py/simple
-    - biautomation>=2.0.0,<3.0.0
